@@ -6,6 +6,9 @@
 <div class="jumbotron">
     <h1>@ViewBag.Title</h1>
     <ul>
+        @foreach (var Tweet in ViewBag.Tweets) {
+            <li>@Tweet.Text</li>
+        }
     </ul>
 </div>
 
