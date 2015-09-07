@@ -18,7 +18,7 @@ namespace TweetSentNL
             routes.MapRoute(
                 name: "Default",
                 url: "{controller}/{action}/{id}",
-                defaults: new { controller = "Pages", action = "Overview", id = UrlParameter.Optional }
+                defaults: new { controller = "Search", action = "Start", id = UrlParameter.Optional }
             );
         }
     }

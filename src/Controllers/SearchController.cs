@@ -8,12 +8,14 @@ using TweetSharp;
 
 namespace TweetSentNL.Controllers
 {
-    public class PagesController : Controller
+    public class SearchController : Controller
     {
-        /// <summary>
-        /// Homepage
-        /// </summary>
-        public ActionResult Overview()
+        public ActionResult Start()
+        {
+            return View();
+        }
+
+        public ActionResult Results(string Q) 
         {
             // Set up your credentials
             String _consumerKey         = ConfigurationManager.ConnectionStrings["TWITTER_CONSUMER_KEY"].ConnectionString;
@@ -21,18 +23,21 @@ namespace TweetSentNL.Controllers
             String _accessToken         = ConfigurationManager.ConnectionStrings["TWITTER_ACCESS_TOKEN"].ConnectionString;
             String _accessTokenSecret   = ConfigurationManager.ConnectionStrings["TWITTER_ACCESS_TOKEN_SECRET"].ConnectionString;
 
-            // In v1.1, all API calls require authentication
             var service = new TwitterService(_consumerKey, _consumerSecret);
             service.AuthenticateWith( _accessToken, _accessTokenSecret);
 
             var result = service.Search(
                 new SearchOptions{ 
-                    Q = "rtlz", 
+                    Q = Q, 
                     Lang = "nl", 
                     Count = 50
                 }
             );
-            ViewBag.Tweets = result.Statuses;
+            Console.WriteLine("count" +  result.Statuses.Count().ToString());
+            if (result.Statuses.Count() > 0)
+            {
+                ViewBag.Tweets = result.Statuses;
+            }
             return View();
         }
     }

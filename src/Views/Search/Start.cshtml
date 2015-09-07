@@ -1,0 +1,12 @@
+﻿@{
+    ViewBag.Title = "Tweets";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="jumbotron">
+    <h1>Zoek </h1>
+    <form method="get" action="/Search/Results">
+        <label>Zoeken</label>
+        <input name="Q" type="search" />
+    </form>
+</div>
