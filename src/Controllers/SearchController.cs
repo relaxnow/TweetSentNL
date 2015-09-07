@@ -33,11 +33,8 @@ namespace TweetSentNL.Controllers
                     Count = 50
                 }
             );
-            Console.WriteLine("count" +  result.Statuses.Count().ToString());
-            if (result.Statuses.Count() > 0)
-            {
-                ViewBag.Tweets = result.Statuses;
-            }
+
+            ViewBag.Tweets = result.Statuses;
             return View();
         }
     }
