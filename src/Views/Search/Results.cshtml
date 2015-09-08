@@ -1,19 +1,28 @@
 ﻿@{
-    ViewBag.Title = "Results";
-    Layout = "~/Views/Shard/_Layout.cshtml";
-}
-
-@{
-    ViewBag.Title = "Tweets";
+    ViewBag.Title = "TweetSentNL - \"" + ViewBag.Q + "\"";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
+<section class="container">
 
-<div class="jumbotron">
-    <h1>@ViewBag.Title</h1>
-    <ul>
-        @foreach (var Tweet in ViewBag.Tweets) {
-            <li>@Tweet.Text</li>
-        }
-    </ul>
-</div>
+    <h1 style="text-align: center">100% happy</h1>
+    <div class="span-12" style="text-align: center">
+        <canvas id="smile" width="500" height="500"></canvas>
+    </div>
+    <div class="span6" style="width: 500px; float: left; margin-right: 40px;">
+        <h2>Positieve tweets</h2>
+        <ul>
+            @foreach (var Tweet in ViewBag.Tweets) {
+                <li>@Tweet.Text</li>
+            }
+        </ul>
+    </div>
+    <div class="span6" style="width: 500px; float: left; margin-right: 40px;">
+        <h2>Negatieve tweets</h2>
+        <ul>
+            @foreach (var Tweet in ViewBag.Tweets) {
+                <li>@Tweet.Text</li>
+            }
+        </ul>
+    </div>
+</section>
 

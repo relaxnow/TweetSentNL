@@ -30,10 +30,11 @@ namespace TweetSentNL.Controllers
                 new SearchOptions{ 
                     Q = Q, 
                     Lang = "nl", 
-                    Count = 50
+                    Count = 10
                 }
             );
 
+            ViewBag.Q = Q;
             ViewBag.Tweets = result.Statuses;
             return View();
         }
